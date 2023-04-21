@@ -70,14 +70,17 @@ public class RomanNumeralGUI extends JFrame {
     }
 
     private void createConvertMenu() {
+        // Create a submenu for numeral conversion
         JMenuItem item;
         JMenu convertMenu = new JMenu("Convert");
         ConvertMenuHandler cmh = new ConvertMenuHandler(this);
 
+        // Add a submenu entry for converting a roman numeral to an arabic value
         item = new JMenuItem("Roman to Arabic");
         item.addActionListener(cmh);
         convertMenu.add(item);
 
+        // Add the submenu to the frame's menu bar
         menuBar.add(convertMenu);
     }
 }
