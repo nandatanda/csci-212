@@ -1,2 +1,3 @@
-public class IllegalRomanNumeralException extends IllegalArgumentException{
+public class IllegalRomanNumeralException extends IllegalArgumentException {
+
 }
