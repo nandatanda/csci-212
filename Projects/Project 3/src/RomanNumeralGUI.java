@@ -6,16 +6,20 @@ public class RomanNumeralGUI extends JFrame {
     JTextArea romanNumeralTextArea = new JTextArea();
     JTextArea arabicNumeralUnsortedTextArea = new JTextArea();
     JTextArea arabicNumeralSortedTextArea = new JTextArea();
+    JMenuBar menuBar = new JMenuBar();
 
     public RomanNumeralGUI() {
-        // Set the title of the window
+        // Set default window behavior
         setTitle("Roman Numeral Converter");
-
-        // Set the size of the window
         setSize(600, 300);
-
-        // Set the window to be visible
+        setLocation(400, 200);
+        setDefaultCloseOperation(RomanNumeralGUI.EXIT_ON_CLOSE);
         setVisible(true);
+
+        // Create menu bar entries
+        setJMenuBar(menuBar);
+        createFileMenu();
+        createConvertMenu();
 
         JPanel contentPane = (JPanel) getContentPane();
 
@@ -42,4 +46,38 @@ public class RomanNumeralGUI extends JFrame {
         arabicNumeralSortedTextArea.append(text + "\n");
     }
 
+    private void createFileMenu() {
+        // Create a submenu for file management
+        JMenuItem item;
+        JMenu fileMenu = new JMenu("File");
+        FileMenuHandler fmh = new FileMenuHandler(this);
+
+        // Add a submenu entry for opening files
+        item = new JMenuItem("Open");
+        item.addActionListener(fmh);
+        fileMenu.add(item);
+
+        // Visually separate the submenu entries
+        fileMenu.addSeparator();
+
+        // Add a submenu entry for quitting the program
+        item = new JMenuItem("Quit");
+        item.addActionListener(fmh);
+        fileMenu.add(item);
+
+        // Add the submenu to the frame's menu bar
+        menuBar.add(fileMenu);
+    }
+
+    private void createConvertMenu() {
+        JMenuItem item;
+        JMenu convertMenu = new JMenu("Convert");
+        ConvertMenuHandler cmh = new ConvertMenuHandler(this);
+
+        item = new JMenuItem("Roman to Arabic");
+        item.addActionListener(cmh);
+        convertMenu.add(item);
+
+        menuBar.add(convertMenu);
+    }
 }

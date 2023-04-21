@@ -8,8 +8,6 @@ public class Project3 {
 
         // Set up GUI window
         RomanNumeralGUI window = new RomanNumeralGUI();
-        window.setLocation(300, 200);
-        window.setDefaultCloseOperation(RomanNumeralGUI.EXIT_ON_CLOSE);
 
         // Create stream from file
         TextFileInput fileInput = new TextFileInput(FILENAME);
