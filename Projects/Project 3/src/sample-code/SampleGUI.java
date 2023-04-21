@@ -5,7 +5,7 @@ public class SampleGUI extends JFrame {
    public SampleGUI(String title, int height, int width) {
 	    setTitle(title);
 	    setSize(height,width);
-       setLocation  (400,200);
+        setLocation  (400,200);
 	    createFileMenu();
 	    setDefaultCloseOperation(EXIT_ON_CLOSE);
        setVisible(true);
