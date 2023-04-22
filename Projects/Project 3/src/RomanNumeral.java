@@ -29,7 +29,7 @@ public class RomanNumeral {
         return value == r.getValue();
     }
 
-    private static int valueOf(String s) {
+    public static int valueOf(String s) {
         int result = 0;
         int previousValue = 0;
         for (int i = s.length() - 1; i >= 0; i--) {
@@ -58,7 +58,7 @@ public class RomanNumeral {
                     value = 1000;
                     break;
                 default:
-                    throw new IllegalArgumentException("Invalid Roman numeral character: " + c);
+                    throw new IllegalRomanNumeralException("Invalid Roman numeral character: " + c);
             }
             if (value < previousValue) {
                 result -= value;
