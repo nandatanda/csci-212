@@ -76,7 +76,7 @@ public class RomanNumeralGUI extends JFrame {
         ConvertMenuHandler cmh = new ConvertMenuHandler(this);
 
         // Add a submenu entry for converting a roman numeral to an arabic value
-        item = new JMenuItem("Roman to Arabic");
+        item = new JMenuItem("Roman to arabic");
         item.addActionListener(cmh);
         convertMenu.add(item);
 
