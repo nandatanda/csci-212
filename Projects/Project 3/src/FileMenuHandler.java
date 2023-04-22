@@ -16,10 +16,9 @@ public class FileMenuHandler implements ActionListener {
             filename = JOptionPane.showInputDialog("Enter the location of the file to be read:");
             RomanFile file = new RomanFile(filename);
 
-            Project3.window.clearAll();
-            Project3.window.addRomanNumerals(file.toUnsortedRoman());
+            Project3.window.setRomanText(file.toUnsortedRoman());
             Project3.window.setArabicText(file.toUnsortedArabic());
-            Project3.window.addSortedArabicNumerals(file.toSortedArabic());
+            Project3.window.setSortedArabicText(file.toSortedArabic());
         } else if (menuName.equals("Quit")) {
             JOptionPane.showMessageDialog(null, "Thank you for using my converter!");
             System.exit(0);

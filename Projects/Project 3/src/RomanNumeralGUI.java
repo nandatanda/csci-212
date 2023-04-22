@@ -3,10 +3,10 @@ import java.awt.*;
 
 public class RomanNumeralGUI extends JFrame {
 
-    JTextArea romanNumeralTextArea = new JTextArea();
-    JTextArea arabicNumeralUnsortedTextArea = new JTextArea();
-    JTextArea arabicNumeralSortedTextArea = new JTextArea();
-    JMenuBar menuBar = new JMenuBar();
+    private final JTextArea romanTextArea = new JTextArea();
+    private final JTextArea arabicTextArea = new JTextArea();
+    private final JTextArea sortedArabicTextArea = new JTextArea();
+    private final JMenuBar menuBar = new JMenuBar();
 
     public RomanNumeralGUI() {
         // Set default window behavior
@@ -21,33 +21,26 @@ public class RomanNumeralGUI extends JFrame {
         createFileMenu();
         createConvertMenu();
 
+        // Create and set the layout of the content pane
         JPanel contentPane = (JPanel) getContentPane();
-
-        // Set the layout of the content pane
         contentPane.setLayout(new GridLayout(1, 3));
 
         // Add text areas to the content pane
-        contentPane.add(romanNumeralTextArea);
-        contentPane.add(arabicNumeralUnsortedTextArea);
-        contentPane.add(arabicNumeralSortedTextArea);
+        contentPane.add(romanTextArea);
+        contentPane.add(arabicTextArea);
+        contentPane.add(sortedArabicTextArea);
     }
 
-    public void clearAll() {
-        romanNumeralTextArea.setText("");
-        arabicNumeralUnsortedTextArea.setText("");
-        arabicNumeralSortedTextArea.setText("");
+    public void setRomanText(String s) {
+        romanTextArea.setText(s);
     }
 
-    public void addRomanNumerals(String text) {
-        romanNumeralTextArea.append(text + "\n");
+    public void setArabicText(String s) {
+        arabicTextArea.setText(s);
     }
 
-    public void addUnsortedArabicNumerals(String text) {
-        arabicNumeralUnsortedTextArea.append(text + "\n");
-    }
-
-    public void addSortedArabicNumerals(String text) {
-        arabicNumeralSortedTextArea.append(text + "\n");
+    public void setSortedArabicText(String s) {
+        sortedArabicTextArea.setText(s);
     }
 
     private void createFileMenu() {

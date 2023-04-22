@@ -44,20 +44,6 @@ public class RomanFile {
         return result;
     }
 
-    public String toSortedRoman() {
-        String result = "";
-        RomanNumeralListIterator i = sortedList.reset();
-        while (i.hasNext()) {
-            if (!result.equals("")) {
-                result += "\n";
-            }
-            RomanNumeral numeral = i.next();
-            String roman = numeral.getNumeral();
-            result += roman;
-        }
-        return result;
-    }
-
     public String toSortedArabic() {
         String result = "";
         // Loop through sorted values
