@@ -32,17 +32,15 @@ public class RomanNumeralGUI extends JFrame {
         contentPane.add(arabicNumeralSortedTextArea);
     }
 
-    public void addRomanNumeral(String text) {
+    public void addRomanNumerals(String text) {
         romanNumeralTextArea.append(text + "\n");
     }
 
-    public void addUnsortedArabicNumeral(int number) {
-        String text = String.valueOf(number);
+    public void addUnsortedArabicNumerals(String text) {
         arabicNumeralUnsortedTextArea.append(text + "\n");
     }
 
-    public void addSortedArabicNumeral(int number) {
-        String text = String.valueOf(number);
+    public void addSortedArabicNumerals(String text) {
         arabicNumeralSortedTextArea.append(text + "\n");
     }
 

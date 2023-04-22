@@ -1,14 +1,12 @@
 public class FileReader {
 
-    private static String FILENAME;
     private static SortedRomanNumeralList sortedList = new SortedRomanNumeralList();
     private static UnsortedRomanNumeralList unsortedList = new UnsortedRomanNumeralList();
 
     FileReader(String s) {
-        FILENAME  = s;
 
         // Create stream from file
-        TextFileInput fileInput = new TextFileInput(FILENAME);
+        TextFileInput fileInput = new TextFileInput(s);
 
         while (true) {
             // Get entire line of text file
@@ -33,11 +31,69 @@ public class FileReader {
         fileInput.close();
     }
 
-    public static SortedRomanNumeralList getSortedList() {
+    public String toUnsortedRoman() {
+        String result = "";
+        RomanNumeralListIterator i = unsortedList.reset();
+        while (i.hasNext()) {
+            if (!result.equals("")) {
+                result += "\n";
+            }
+            RomanNumeral numeral = i.next();
+            String roman = numeral.getNumeral();
+            result += roman;
+        }
+        return result;
+    }
+
+    public String toSortedRoman() {
+        String result = "";
+        RomanNumeralListIterator i = sortedList.reset();
+        while (i.hasNext()) {
+            if (!result.equals("")) {
+                result += "\n";
+            }
+            RomanNumeral numeral = i.next();
+            String roman = numeral.getNumeral();
+            result += roman;
+        }
+        return result;
+    }
+
+    public String toSortedArabic() {
+        String result = "";
+        // Loop through sorted values
+        RomanNumeralListIterator i = sortedList.reset();
+        while (i.hasNext()) {
+            if (!result.equals("")) {
+                result += "\n";
+            }
+            RomanNumeral numeral = i.next();
+            String arabic = numeral.toString();
+            result += arabic;
+        }
+        return result;
+    }
+
+    public String toUnsortedArabic() {
+        String result = "";
+        // Loop through sorted values
+        RomanNumeralListIterator i = unsortedList.reset();
+        while (i.hasNext()) {
+            if (!result.equals("")) {
+                result += "\n";
+            }
+            RomanNumeral numeral = i.next();
+            String arabic = numeral.toString();
+            result += arabic;
+        }
+        return result;
+    }
+
+    public SortedRomanNumeralList getSortedList() {
         return sortedList;
     }
 
-    public static UnsortedRomanNumeralList getUnsortedList() {
+    public UnsortedRomanNumeralList getUnsortedList() {
         return unsortedList;
     }
 
