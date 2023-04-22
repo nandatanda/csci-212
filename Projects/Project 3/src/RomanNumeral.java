@@ -31,7 +31,7 @@ public class RomanNumeral {
         return value == r.getValue();
     }
 
-    private int valueOf(String s) {
+    private int valueOf(String s) throws IllegalRomanNumeralException{
         // Return the integer value of a RomanNumeral
         int result = 0;
         int previousValue = 0;
