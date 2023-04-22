@@ -13,5 +13,6 @@ public class ConvertMenuHandler implements ActionListener {
         String menuName = event.getActionCommand();
         if (menuName.equals("Roman to Arabic"))
             JOptionPane.showMessageDialog(null, "You clicked on Roman to Arabic");
+            System.out.println(RomanNumeral.valueOf("Q"));
     }
 }
