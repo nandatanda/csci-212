@@ -11,8 +11,6 @@ public class ConvertMenuHandler implements ActionListener {
 
     public void actionPerformed(ActionEvent event) {
         String menuName = event.getActionCommand();
-        String userEntry;
-        int userValue;
 
         // Prompt for a roman numeral, convert to arabic, and display the result
         if (menuName.equals("Roman to arabic")) {
