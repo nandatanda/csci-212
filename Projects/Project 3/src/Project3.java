@@ -2,16 +2,14 @@ public class Project3 {
 
     public static SortedRomanNumeralList sortedList = new SortedRomanNumeralList();
     public static UnsortedRomanNumeralList unsortedList = new UnsortedRomanNumeralList();
-    public static String workingDirectory;
+    public static String workingDirectory = "input.txt";
 
     public static void main(String[] args) {
-        String FILENAME = "input.txt";
-
         // Set up GUI window
         RomanNumeralGUI window = new RomanNumeralGUI();
 
         // Create stream from file
-        TextFileInput fileInput = new TextFileInput(FILENAME);
+        TextFileInput fileInput = new TextFileInput(workingDirectory);
 
         while (true) {
             // Get entire line of text file
