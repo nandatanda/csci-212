@@ -6,9 +6,9 @@ public class Project3 {
     public static void main(String[] args) {
         RomanFile file = new RomanFile(workingDirectory);
 
-        window.setRomanText(file.toUnsortedRoman());
-        window.setArabicText(file.toUnsortedArabic());
-        window.setSortedArabicText(file.toSortedArabic());
+        window.setRomanText(file.toRomanString());
+        window.setArabicText(file.toArabicString());
+        window.setSortedArabicText(file.toSortedArabicString());
 
     }
 }

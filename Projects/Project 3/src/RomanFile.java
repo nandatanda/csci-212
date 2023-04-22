@@ -30,7 +30,7 @@ public class RomanFile {
         fileInput.close();
     }
 
-    public String toUnsortedRoman() {
+    public String toRomanString() {
         String result = "";
         RomanNumeralListIterator i = unsortedList.reset();
         while (i.hasNext()) {
@@ -44,22 +44,7 @@ public class RomanFile {
         return result;
     }
 
-    public String toSortedArabic() {
-        String result = "";
-        // Loop through sorted values
-        RomanNumeralListIterator i = sortedList.reset();
-        while (i.hasNext()) {
-            if (!result.equals("")) {
-                result += "\n";
-            }
-            RomanNumeral numeral = i.next();
-            String arabic = numeral.toString();
-            result += arabic;
-        }
-        return result;
-    }
-
-    public String toUnsortedArabic() {
+    public String toArabicString() {
         String result = "";
         // Loop through sorted values
         RomanNumeralListIterator i = unsortedList.reset();
@@ -68,7 +53,22 @@ public class RomanFile {
                 result += "\n";
             }
             RomanNumeral numeral = i.next();
-            String arabic = numeral.toString();
+            String arabic = numeral.toArabicString();
+            result += arabic;
+        }
+        return result;
+    }
+
+    public String toSortedArabicString() {
+        String result = "";
+        // Loop through sorted values
+        RomanNumeralListIterator i = sortedList.reset();
+        while (i.hasNext()) {
+            if (!result.equals("")) {
+                result += "\n";
+            }
+            RomanNumeral numeral = i.next();
+            String arabic = numeral.toArabicString();
             result += arabic;
         }
         return result;
@@ -81,5 +81,4 @@ public class RomanFile {
     public UnsortedRomanNumeralList getUnsortedList() {
         return unsortedList;
     }
-
 }

@@ -12,24 +12,27 @@ public class RomanNumeral {
         return numeral;
     }
 
+    public int getValue() {
+        return value;
+    }
+
     public void setNumeral(String s) {
         numeral = s;
         value = valueOf(s);
     }
 
-    public int getValue() {
-        return value;
-    }
-
-    public String toString() {
+    public String toArabicString() {
+        // Return the numeral's arabic conversion as a String
         return Integer.toString(value);
     }
 
     public boolean equals(RomanNumeral r) {
+        // Compare the integer value of two RomanNumeral objects
         return value == r.getValue();
     }
 
-    public static int valueOf(String s) {
+    private int valueOf(String s) {
+        // Return the integer value of a RomanNumeral
         int result = 0;
         int previousValue = 0;
         for (int i = s.length() - 1; i >= 0; i--) {
