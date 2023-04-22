@@ -1,7 +1,7 @@
 public class FileReader {
 
-    private static SortedRomanNumeralList sortedList = new SortedRomanNumeralList();
-    private static UnsortedRomanNumeralList unsortedList = new UnsortedRomanNumeralList();
+    private final SortedRomanNumeralList sortedList = new SortedRomanNumeralList();
+    private final UnsortedRomanNumeralList unsortedList = new UnsortedRomanNumeralList();
 
     FileReader(String s) {
         // Create stream from file
