@@ -11,15 +11,20 @@ public class FileMenuHandler implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent event) {
+        // Store the latest action
         String menuName;
         menuName = event.getActionCommand();
+
+        // Check if that action was to click the "Open" button
         if (menuName.equals("Open"))
             openFile();
+        // Otherwise check if "Close" was pressed
         else if (menuName.equals("Quit"))
             System.exit(0);
-    } //actionPerformed
+    }
 
     private void openFile() {
+        // Display a window for user to pick which file to open
         JFileChooser chooser;
         int status;
         chooser = new JFileChooser();
@@ -28,12 +33,14 @@ public class FileMenuHandler implements ActionListener {
             readSource(chooser.getSelectedFile());
         else
             JOptionPane.showMessageDialog(null, "Open File dialog canceled");
-    } //openFile
+    }
 
     private void readSource(File chosenFile) {
+        // Create a file reader object to parse file
         String chosenFileName = chosenFile.getName();
         FileReader file = new FileReader(chosenFileName);
 
+        // Populate GUI with the file's contents
         Project3.window.setRomanText(file.toRomanString());
         Project3.window.setArabicText(file.toArabicString());
         Project3.window.setSortedArabicText(file.toSortedArabicString());

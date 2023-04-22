@@ -38,5 +38,4 @@ public class RomanNumeralList {
     public RomanNumeralListIterator reset() {
         return new RomanNumeralListIterator(first.next);
     }
-
 }

@@ -31,6 +31,7 @@ public class FileReader {
     }
 
     public String toRomanString() {
+        // Return all entries as a preformatted String of Roman numerals
         String result = "";
         RomanNumeralListIterator i = unsortedList.reset();
         while (i.hasNext()) {
@@ -45,8 +46,8 @@ public class FileReader {
     }
 
     public String toArabicString() {
+        // Return all entries as a preformatted String of Arabic numerals
         String result = "";
-        // Loop through sorted values
         RomanNumeralListIterator i = unsortedList.reset();
         while (i.hasNext()) {
             if (!result.equals("")) {
@@ -60,6 +61,7 @@ public class FileReader {
     }
 
     public String toSortedArabicString() {
+        // Return all entries as a preformatted sorted String of Arabic numerals
         String result = "";
         // Loop through sorted values
         RomanNumeralListIterator i = sortedList.reset();
