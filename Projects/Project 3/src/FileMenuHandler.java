@@ -2,24 +2,27 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+
 public class FileMenuHandler implements ActionListener {
     JFrame jframe;
-    public FileMenuHandler (JFrame jf) {
+
+    public FileMenuHandler(JFrame jf) {
         jframe = jf;
     }
+
     public void actionPerformed(ActionEvent event) {
-        String  menuName;
+        String menuName;
         menuName = event.getActionCommand();
         if (menuName.equals("Open"))
-            openFile( );
+            openFile();
         else if (menuName.equals("Quit"))
             System.exit(0);
     } //actionPerformed
 
-    private void openFile( ) {
+    private void openFile() {
         JFileChooser chooser;
-        int          status;
-        chooser = new JFileChooser( );
+        int status;
+        chooser = new JFileChooser();
         status = chooser.showOpenDialog(null);
         if (status == JFileChooser.APPROVE_OPTION)
             readSource(chooser.getSelectedFile());
@@ -29,22 +32,10 @@ public class FileMenuHandler implements ActionListener {
 
     private void readSource(File chosenFile) {
         String chosenFileName = chosenFile.getName();
-        TextFileInput inFile = new TextFileInput(chosenFileName);
-        String ssn;
-        int subscript = 0;
-        Container myContentPane = jframe.getContentPane();
-        TextArea myTextArea = new TextArea();
-        TextArea mySubscripts = new TextArea();
-        myContentPane.add(myTextArea, BorderLayout.EAST);
-        myContentPane.add(mySubscripts, BorderLayout.WEST);
+        FileReader file = new FileReader(chosenFileName);
 
-        ssn = inFile.readLine();
-        while (ssn != null) {
-            mySubscripts.append(Integer.toString(subscript++)+"\n");
-            myTextArea.append(ssn+"\n");
-            ssn = inFile.readLine();
-        } //while
-        //    jframe.setVisible(true);
-        jframe.setVisible(true);
+        Project3.window.setRomanText(file.toRomanString());
+        Project3.window.setArabicText(file.toArabicString());
+        Project3.window.setSortedArabicText(file.toSortedArabicString());
     }
 }
