@@ -2,6 +2,7 @@ public class Project3 {
 
     public static SortedRomanNumeralList sortedList = new SortedRomanNumeralList();
     public static UnsortedRomanNumeralList unsortedList = new UnsortedRomanNumeralList();
+    public static String workingDirectory;
 
     public static void main(String[] args) {
         String FILENAME = "input.txt";
