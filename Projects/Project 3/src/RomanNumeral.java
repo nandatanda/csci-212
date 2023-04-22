@@ -61,7 +61,7 @@ public class RomanNumeral {
                     value = 1000;
                     break;
                 default:
-                    throw new IllegalRomanNumeralException("Invalid Roman numeral character: " + c);
+                    throw new IllegalRomanNumeralException("Invalid Roman numeral: " + s);
             }
             if (value < previousValue) {
                 result -= value;
