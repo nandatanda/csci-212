@@ -17,8 +17,14 @@ public class ConvertMenuHandler implements ActionListener {
         // Prompt for a roman numeral, convert to arabic, and display the result
         if (menuName.equals("Roman to arabic")) {
             userEntry = JOptionPane.showInputDialog("Enter a Roman numeral:");
-            userValue = RomanNumeral.valueOf(userEntry);
-            JOptionPane.showMessageDialog(null, "The Roman numeral '" + userEntry + "' carries the value " + userValue + ".");
+            try {
+                userValue = RomanNumeral.valueOf(userEntry);
+                JOptionPane.showMessageDialog(null, "The Roman numeral '" + userEntry + "' carries the value " + userValue);
+            }
+            catch (IllegalRomanNumeralException e){
+                JOptionPane.showMessageDialog(null, "The Roman numeral you entered is invalid");
+                System.out.println(e.getMessage());
+            }
         }
     }
 }
