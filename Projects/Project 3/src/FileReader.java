@@ -1,9 +1,9 @@
-public class RomanFile {
+public class FileReader {
 
     private static SortedRomanNumeralList sortedList = new SortedRomanNumeralList();
     private static UnsortedRomanNumeralList unsortedList = new UnsortedRomanNumeralList();
 
-    RomanFile(String s) {
+    FileReader(String s) {
         // Create stream from file
         TextFileInput fileInput = new TextFileInput(s);
 

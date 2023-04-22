@@ -4,7 +4,7 @@ public class Project3 {
     public static  RomanNumeralGUI window = new RomanNumeralGUI();
 
     public static void main(String[] args) {
-        RomanFile file = new RomanFile(workingDirectory);
+        FileReader file = new FileReader(workingDirectory);
 
         window.setRomanText(file.toRomanString());
         window.setArabicText(file.toArabicString());
