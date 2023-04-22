@@ -1,12 +1,9 @@
-import java.io.FileNotFoundException;
-
-public class FileReader {
+public class RomanFile {
 
     private static SortedRomanNumeralList sortedList = new SortedRomanNumeralList();
     private static UnsortedRomanNumeralList unsortedList = new UnsortedRomanNumeralList();
 
-    FileReader(String s) {
-
+    RomanFile(String s) {
         // Create stream from file
         TextFileInput fileInput = new TextFileInput(s);
 
