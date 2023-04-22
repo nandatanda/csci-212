@@ -14,7 +14,7 @@ public class FileMenuHandler implements ActionListener {
         if (menuName.equals("Open"))
             JOptionPane.showMessageDialog(null, "You clicked on Open");
         else if (menuName.equals("Quit"))
-            JOptionPane.showMessageDialog(null, "Thank you for using our converter!");
+            JOptionPane.showMessageDialog(null, "Thank you for using my converter!");
             System.exit(0);
     }
 }
