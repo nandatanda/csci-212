@@ -1,34 +1,62 @@
-import java.util.TreeMap;
-
+/**
+ * RomanNumeralList represents a singly linked list of Roman numerals.
+ * It provides operations to add elements, and retrieve the list as a string in Roman or Arabic numeral form.
+ */
 public class RomanNumeralList {
 
-    private TreeMap<Integer, String> map;
+    protected RomanNumeralListNode first;
+    protected RomanNumeralListNode last;
+    protected int length;
 
+    /**
+     * Constructs an empty RomanNumeralList object.
+     * Initializes the first and last nodes of the list.
+     */
     public RomanNumeralList() {
-        map = new TreeMap<>(new IntegerComparator());
+        RomanNumeralListNode ln = new RomanNumeralListNode();
+        first = ln;
+        last = ln;
+        length = 0;
     }
 
-    public void add(RomanNumeral r) {
-        int value = r.getValue();
-        String symbol = r.getSymbol();
-
-        map.put(value, symbol);
+    /**
+     * Appends a Roman numeral to the end of the list.
+     *
+     * @param numeral the Roman numeral to be appended
+     */
+    public void append(RomanNumeral numeral) {
+        RomanNumeralListNode node = new RomanNumeralListNode(numeral);
+        last.next = node;
+        last = node;
+        length++;
     }
 
-    public String getRomanString() {
+    /**
+     * Returns a string representation of the Roman numerals in the list, in their Roman numeral form.
+     *
+     * @return the string representation of Roman numerals
+     */
+    public String toRomanString() {
         String romanString = "";
-
-        for (String symbol : map.values()) {
-            romanString += symbol + "\n";
+        RomanNumeralListNode node = first.next;
+        while (node != null) {
+            romanString += (node.data.getSymbol() + "\n");
+            node = node.next;
         }
         return romanString;
     }
 
-    public String getArabicString() {
+    /**
+     * Returns a string representation of the Roman numerals in the list, in their Arabic numeral form.
+     *
+     * @return the string representation of Arabic numerals
+     */
+    public String toArabicString() {
         String arabicString = "";
-
-        for (int value : map.keySet()) {
-            arabicString += value + "\n";
+        RomanNumeralListNode node = first.next;
+        while (node != null) {
+            arabicString += (node.data.getValue() + "\n");
+            node = node.next;
         }
         return arabicString;
     }

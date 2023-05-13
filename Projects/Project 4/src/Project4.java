@@ -1,18 +1,29 @@
+/**
+ * The main class of Project 4, responsible for initializing and running the Roman Numeral Converter program.
+ */
 public class Project4 {
 
+    /**
+     * The path to the working directory or default file used for input.
+     */
+    public static String workingDirectory = "input.txt";
+
+    /**
+     * The instance of the RomanNumeralGUI class representing the graphical user interface of the program.
+     */
+    public static RomanNumeralGUI window = new RomanNumeralGUI();
+
+    /**
+     * The entry point of the program.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
-        
-        RomanNumeral myNum1 = new RomanNumeral("XIV");
-        RomanNumeral myNum2 = new RomanNumeral("XV");
-        RomanNumeral myNum3 = new RomanNumeral("XVI");
+        // Read initial information from the default file
+        FileReader file = new FileReader(workingDirectory);
 
-        RomanNumeralList myList = new RomanNumeralList();
-
-        myList.add(myNum3);
-        myList.add(myNum2);
-        myList.add(myNum1);
-
-        System.out.println(myList.getRomanString());
-        System.out.println(myList.getArabicString());
+        // Populate the GUI with the file's contents
+        window.setRomanText(file.getUnsortedList().toRomanString());
+        window.setArabicText(file.getSortedList().toArabicString());
     }
 }

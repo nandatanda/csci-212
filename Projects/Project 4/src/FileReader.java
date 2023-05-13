@@ -1,11 +1,19 @@
+/**
+ * FileReader is responsible for reading Roman numeral data from a file and populating sorted and unsorted lists.
+ */
 public class FileReader {
 
-    private final SortedRomanNumeralList sortedList = new SortedRomanNumeralList();
-    private final UnsortedRomanNumeralList unsortedList = new UnsortedRomanNumeralList();
+    private final RomanNumeralTree sortedList = new RomanNumeralTree();
+    private final RomanNumeralList unsortedList = new RomanNumeralList();
 
-    FileReader(String s) {
+    /**
+     * Constructs a FileReader object and reads Roman numeral data from the specified file.
+     *
+     * @param filename the name of the file to read from
+     */
+    FileReader(String filename) {
         // Create stream from file
-        TextFileInput fileInput = new TextFileInput(s);
+        TextFileInput fileInput = new TextFileInput(filename);
 
         while (true) {
             // Get entire line of text file
@@ -30,57 +38,21 @@ public class FileReader {
         fileInput.close();
     }
 
-    public String toRomanString() {
-        // Return all entries as a preformatted String of Roman numerals
-        String result = "";
-        RomanNumeralListIterator i = unsortedList.reset();
-        while (i.hasNext()) {
-            if (!result.equals("")) {
-                result += "\n";
-            }
-            RomanNumeral numeral = i.next();
-            String roman = numeral.getNumeral();
-            result += roman;
-        }
-        return result;
-    }
-
-    public String toArabicString() {
-        // Return all entries as a preformatted String of Arabic numerals
-        String result = "";
-        RomanNumeralListIterator i = unsortedList.reset();
-        while (i.hasNext()) {
-            if (!result.equals("")) {
-                result += "\n";
-            }
-            RomanNumeral numeral = i.next();
-            String arabic = numeral.toArabicString();
-            result += arabic;
-        }
-        return result;
-    }
-
-    public String toSortedArabicString() {
-        // Return all entries as a preformatted sorted String of Arabic numerals
-        String result = "";
-        // Loop through sorted values
-        RomanNumeralListIterator i = sortedList.reset();
-        while (i.hasNext()) {
-            if (!result.equals("")) {
-                result += "\n";
-            }
-            RomanNumeral numeral = i.next();
-            String arabic = numeral.toArabicString();
-            result += arabic;
-        }
-        return result;
-    }
-
-    public SortedRomanNumeralList getSortedList() {
+    /**
+     * Returns the sorted list of Roman numerals read from the file.
+     *
+     * @return the sorted list of Roman numerals
+     */
+    public RomanNumeralTree getSortedList() {
         return sortedList;
     }
 
-    public UnsortedRomanNumeralList getUnsortedList() {
+    /**
+     * Returns the unsorted list of Roman numerals read from the file.
+     *
+     * @return the unsorted list of Roman numerals
+     */
+    public RomanNumeralList getUnsortedList() {
         return unsortedList;
     }
 }

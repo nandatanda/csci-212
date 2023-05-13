@@ -1,39 +1,79 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Represents a Roman numeral and provides methods to manipulate and compare Roman numerals.
+ */
 public class RomanNumeral {
 
     private String symbol;
     private int value;
 
-    public RomanNumeral(String s) {
-        symbol = s;
-        value = valueOf(s);
+    /**
+     * Constructs a RomanNumeral object with the specified symbol.
+     *
+     * @param symbol the Roman numeral symbol
+     */
+    public RomanNumeral(String symbol) {
+        this.symbol = symbol;
+        this.value = valueOf(symbol);
     }
 
+    /**
+     * Returns the symbol of the RomanNumeral.
+     *
+     * @return the symbol of the RomanNumeral
+     */
     public String getSymbol() {
         return symbol;
     }
 
-    public void setSymbol(String s) {
-        symbol = s;
-        value = valueOf(s);
+    /**
+     * Sets the symbol of the RomanNumeral and updates its value.
+     *
+     * @param symbol the new symbol for the RomanNumeral
+     */
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+        this.value = valueOf(symbol);
     }
 
+    /**
+     * Returns the integer value of the RomanNumeral.
+     *
+     * @return the integer value of the RomanNumeral
+     */
     public int getValue() {
         return value;
     }
 
+    /**
+     * Returns the string representation of the integer value of the RomanNumeral.
+     *
+     * @return the string representation of the integer value
+     */
     public String getValueString() {
-        // Return the numeral's arabic conversion as a String
         return Integer.toString(value);
     }
 
+    /**
+     * Checks if this RomanNumeral is equal to the specified RomanNumeral.
+     * Two RomanNumeral objects are considered equal if their integer values are equal.
+     *
+     * @param r the RomanNumeral to compare to
+     * @return {@code true} if the RomanNumeral objects are equal, {@code false} otherwise
+     */
     public boolean equals(RomanNumeral r) {
-        // Compare the integer value of two RomanNumeral objects
         return value == r.getValue();
     }
 
+    /**
+     * Returns the integer value of a Roman numeral string.
+     *
+     * @param s the Roman numeral string
+     * @return the integer value of the Roman numeral
+     * @throws IllegalArgumentException if the Roman numeral string is invalid
+     */
     private int valueOf(String s) throws IllegalArgumentException {
         // Create a map to store the translation of each Roman numeral character
         Map<Character, Integer> map = new HashMap<>();
